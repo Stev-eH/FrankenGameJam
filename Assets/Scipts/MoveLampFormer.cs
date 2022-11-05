@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementLampFormer : MonoBehaviour
+public class MoveLampFormer : MonoBehaviour
 {
     private float speed = 5.0f;
     public GameObject character;
