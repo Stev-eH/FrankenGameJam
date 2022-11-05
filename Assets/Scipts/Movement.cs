@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
         CameraZDistance =
             mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
         myText.SetActive(false);
+
         
 
     }
@@ -33,7 +34,7 @@ public class Movement : MonoBehaviour
 
         if (transform.localScale.y > transform.localScale.x)
         {
-            NewWorldPosition.y = gridPos(NewWorldPosition.y);
+            NewWorldPosition.y = gridPos(NewWorldPosition.y - transform.localScale.y / 2) + transform.localScale.y / 2;
             if (collisionFront && NewWorldPosition.y > transform.position.y)
                 NewWorldPosition.y = transform.position.y;
 
@@ -44,10 +45,10 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x);
+            NewWorldPosition.x = gridPos(NewWorldPosition.x - transform.localScale.x / 2) + transform.localScale.x/2;
 
             if (collisionFront && NewWorldPosition.x < transform.position.x)
-                NewWorldPosition.x = transform.position.x;
+                NewWorldPosition.x = transform.position.x ;
 
             if (collisionBack && NewWorldPosition.x > transform.position.x)
                 NewWorldPosition.x = transform.position.x;
@@ -55,10 +56,10 @@ public class Movement : MonoBehaviour
             NewWorldPosition.y = transform.position.y;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, NewWorldPosition, gridReselution/10);
+        transform.position = Vector3.MoveTowards(transform.position, NewWorldPosition, gridReselution);
         
         //Siegerehrung
-        if(goldenCar && transform.position.y == 0)
+        if(goldenCar && transform.position.y <= 0)
         { 
             myText.SetActive(true);
         }
@@ -66,10 +67,7 @@ public class Movement : MonoBehaviour
     }
 
     float gridPos(float pos)
-    {
-        if (pos < 0)
-            return 0;
-
+    {       
         float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
         return posistion;
     }
