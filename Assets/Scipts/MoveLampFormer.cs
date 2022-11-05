@@ -23,7 +23,7 @@ public class MoveLampFormer : MonoBehaviour
 
     private void OnCollisionStay(Collision col)
     {
-        if (col.gameObject.transform.parent.name == "Dynamic_Platform" && !collidingWithPlatformsideleft && !collidingWithPlatformsideright)
+        if (col.gameObject.transform.parent.name == "Dynamic_Platform" && col.gameObject.transform.position.y > transform.position.y - 0.41f)
         {
             //Debug.Log("huhu");
             transform.position += Vector3.right*((col.gameObject.transform.position.x - startingoffsetx) -transform.position.x);
@@ -41,7 +41,11 @@ public class MoveLampFormer : MonoBehaviour
         {
             collidingWithLeft = true;
         }
-        else if (col.gameObject.transform.position.y>transform.position.y-0.39f)
+        else if(col.gameObject.name == "Battery")
+        {
+            
+        }
+        else if (col.gameObject.transform.position.y>transform.position.y-0.4f)
         {
             if (col.gameObject.transform.position.x < transform.position.x)
             {
@@ -53,7 +57,7 @@ public class MoveLampFormer : MonoBehaviour
             }
             
         };
-        if (col.gameObject.transform.parent.name == "Dynamic_Platform" && !collidingWithPlatformsideleft && !collidingWithPlatformsideright)
+        if (col.gameObject.transform.parent.name == "Dynamic_Platform" && col.gameObject.transform.position.y > transform.position.y - 0.41f)
         {
             //Collision with left-right moving platform, standing on it
             startingoffsetx = col.gameObject.transform.position.x - transform.position.x;
