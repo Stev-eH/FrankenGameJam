@@ -232,8 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6471a07eff8f04f95f775e8e807fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  CameraZDistance: 0
   gridSize: 6
   gridReselution: 1
+  collisionFront: 1
+  collisionBack: 1
 --- !u!54 &71711268
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -429,8 +433,8 @@ GameObject:
   - component: {fileID: 591861959}
   - component: {fileID: 591861958}
   - component: {fileID: 591861957}
-  - component: {fileID: 591861956}
   - component: {fileID: 591861955}
+  - component: {fileID: 591861956}
   m_Layer: 0
   m_Name: CarNew
   m_TagString: Untagged
@@ -479,10 +483,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 591861953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6471a07eff8f04f95f775e8e807fff, type: 3}
+  m_Script: {fileID: 11500000, guid: 74fa8ba69da17d04eae187527ae53146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 6
+  gridSize: 4
   gridReselution: 1
 --- !u!136 &591861957
 CapsuleCollider:
@@ -1305,8 +1309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6471a07eff8f04f95f775e8e807fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  CameraZDistance: 0
   gridSize: 4
   gridReselution: 1
+  collisionFront: 1
+  collisionBack: 1
 --- !u!54 &1756504608
 Rigidbody:
   m_ObjectHideFlags: 0
