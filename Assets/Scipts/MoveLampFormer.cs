@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MovementLampFormer : MonoBehaviour
+public class MoveLampFormer : MonoBehaviour
 {
     bool colliding = false; // variable to check whether object is colliding
 
