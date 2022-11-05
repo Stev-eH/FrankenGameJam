@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour
     private float CameraZDistance;
     public int gridSize = 4;
     public float gridReselution = 1f;
-    bool isCurrentlyColliding;
+    private bool collisionFront = true;
+    private bool collisionBack = true;
 
     void Start()
     {
@@ -16,7 +17,6 @@ public class Movement : MonoBehaviour
         CameraZDistance =
             mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
 
-        transform.position = new Vector3((transform.localScale.x / 2) + transform.localScale.x, (transform.localScale.y / 2) + transform.localScale.y, transform.localScale.z);
     }
     void OnMouseDrag()
     {
@@ -34,10 +34,6 @@ public class Movement : MonoBehaviour
             NewWorldPosition.x = gridPos(NewWorldPosition.x + (transform.localScale.x / 2));
             NewWorldPosition.y = transform.position.y;
         }
-        Debug.Log(isCurrentlyColliding);
-       
-        
-
 
         transform.position = NewWorldPosition;
     }
@@ -54,14 +50,15 @@ public class Movement : MonoBehaviour
         return posistion;
     }
 
-    void OnCollisionEnter(Collision col)
+    public void CollisionDetectedFront()
     {
-        isCurrentlyColliding = true;
+        collisionFront = !collisionFront;
+        Debug.Log("collisionFront: " + collisionFront);
     }
 
-    void OnCollisionExit(Collision col)
+    public void CollisionDetectedBack()
     {
-        isCurrentlyColliding = false;
+        collisionBack = !collisionBack;
+        Debug.Log("collisionBack: " + collisionBack);
     }
-
 }
