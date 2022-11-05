@@ -7,33 +7,38 @@ public class Movement : MonoBehaviour
     private Camera mainCamera;
     private float CameraZDistance;
     public int gridSize = 4;
-    public float gridReselution = 1.5f;
+    public float gridReselution = 1f;
 
     void Start()
     {
         mainCamera = Camera.main;
         CameraZDistance =
-            mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
+            mainCamera.WorldToScreenPoint(transform.position).y; //z axis of the game object for screen view
+
+        transform.position = new Vector3((transform.localScale.x / 2) + transform.localScale.x, (transform.localScale.y / 2) + transform.localScale.y, transform.localScale.z);
     }
-
-    private float counter = 0;
-
     void OnMouseDrag()
     {
+        Debug.Log("TEst");
         Vector3 ScreenPosition =
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, CameraZDistance); //z axis added to screen point 
         Vector3 NewWorldPosition =
             mainCamera.ScreenToWorldPoint(ScreenPosition); //Screen point converted to world point
-        if (transform.localScale.z > transform.localScale.x)
+        if (transform.localScale.y > transform.localScale.x)
         {
-            NewWorldPosition.z = gridPos(NewWorldPosition.z);
+            NewWorldPosition.y = gridPos(NewWorldPosition.y + (transform.localScale.y / 2));
             NewWorldPosition.x = transform.position.x;
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x);
-            NewWorldPosition.z = transform.position.z;
+            NewWorldPosition.x = gridPos(NewWorldPosition.x + (transform.localScale.x / 2));
+            NewWorldPosition.y = transform.position.y;
         }
+
+       
+        
+
+
         transform.position = NewWorldPosition;
     }
 
