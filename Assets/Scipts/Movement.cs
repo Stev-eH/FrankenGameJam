@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour
     private float CameraZDistance;
     public int gridSize = 4;
     public float gridReselution = 1f;
-    bool isCurrentlyColliding;
+    private bool collisionFront = true;
+    private bool collisionBack = true;
 
     void Start()
     {
@@ -16,7 +17,6 @@ public class Movement : MonoBehaviour
         CameraZDistance =
             mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
 
-        transform.position = new Vector3((transform.localScale.x / 2) + transform.localScale.x, (transform.localScale.y / 2) + transform.localScale.y, transform.localScale.z);
     }
     void OnMouseDrag()
     {
@@ -26,42 +26,52 @@ public class Movement : MonoBehaviour
             mainCamera.ScreenToWorldPoint(ScreenPosition); //Screen point converted to world point
         if (transform.localScale.y > transform.localScale.x)
         {
-            NewWorldPosition.y = gridPos(NewWorldPosition.y + (transform.localScale.y / 2));
+
+            
+
+    
+            NewWorldPosition.y = gridPos(NewWorldPosition.y + gridReselution);
+
+            if (collisionFront && NewWorldPosition.y > transform.position.y)
+                NewWorldPosition.y = transform.position.y;
+
+            if (collisionBack && NewWorldPosition.y < transform.position.y)
+                NewWorldPosition.y = transform.position.y;
+
+
             NewWorldPosition.x = transform.position.x;
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x + (transform.localScale.x / 2));
+            NewWorldPosition.x = gridPos(NewWorldPosition.x + gridReselution);
+
+            if (collisionFront && NewWorldPosition.x < transform.position.x)
+                NewWorldPosition.x = transform.position.x;
+
+            if (collisionBack && NewWorldPosition.x > transform.position.x)
+                NewWorldPosition.x = transform.position.x;
+
             NewWorldPosition.y = transform.position.y;
         }
-        Debug.Log(isCurrentlyColliding);
-       
-        
-
 
         transform.position = NewWorldPosition;
     }
 
     float gridPos(float pos)
     {
-        if (pos < 0)
-            return 0;
-
-        if (pos / gridReselution >= gridSize)
-            return gridReselution * gridSize;
-
         float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
         return posistion;
     }
 
-    void OnCollisionEnter(Collision col)
+    public void CollisionDetectedFront()
     {
-        isCurrentlyColliding = true;
+        collisionFront = !collisionFront;
+        Debug.Log("collisionFront: " + collisionFront);
     }
 
-    void OnCollisionExit(Collision col)
+    public void CollisionDetectedBack()
     {
-        isCurrentlyColliding = false;
+        collisionBack = !collisionBack;
+        Debug.Log("collisionBack: " + collisionBack);
     }
-
 }
