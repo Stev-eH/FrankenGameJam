@@ -6,7 +6,6 @@ public class MovePlayer : MonoBehaviour
 {
     // Update is called once per frame
      public float horizontalSpeed = 2.0F;
-    private Vector3 playerVelocity;
     Rigidbody m_Rigidbody;
     float m_Speed;
 
@@ -20,11 +19,7 @@ public class MovePlayer : MonoBehaviour
         m_Speed = 2.0f;
     }
     void Update()
-    {
-        float h = horizontalSpeed * Input.GetAxis("Mouse X");
-        transform.Rotate(0, h, 0);
-
-        if (Input.GetKey(KeyCode.W))
+    {       if (Input.GetKey(KeyCode.W))
         {
             //Move the Rigidbody forwards constantly at speed you define (the blue arrow axis in Scene view)
             m_Rigidbody.velocity = transform.forward * m_Speed;
