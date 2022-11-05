@@ -8,7 +8,7 @@ public class Movement_Lamp_Platforms_LR : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float speed = 2.0f;
+    public float speed = 1.5f;
     private bool moving_left = true;
     public float min_pos_x = 5f;
     public float max_pos_x = 10f;

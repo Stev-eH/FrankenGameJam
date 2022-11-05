@@ -5,7 +5,6 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private GameObject copy;
-    private GameObject glow;
     public Material color;
     public bool isHighlight;
 
@@ -27,10 +26,11 @@ public class Interactable : MonoBehaviour
         {
             //Debug.Log("Hallo :)");
             isHighlight = true;
-            copy = Instantiate(this.gameObject);
+            copy = Instantiate(this.gameObject, transform.parent);
             Destroy(copy.GetComponent<Rigidbody>());
             Destroy(copy.GetComponent<BoxCollider>());
             Destroy(copy.GetComponent<SphereCollider>());
+            Destroy(copy.GetComponent<LODGroup>());
             copy.transform.localScale = new Vector3(transform.localScale.x + 0.2f, transform.localScale.y + 0.2f, transform.localScale.z + 0.2f);
             copy.GetComponent<MeshRenderer>().material = color;
         }
