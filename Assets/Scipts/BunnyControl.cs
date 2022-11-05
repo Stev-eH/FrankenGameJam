@@ -11,9 +11,9 @@ public class BunnyControl : MonoBehaviour
     public float speed = 0.1f;
     public GameObject character;
     public float side_Thrust = 10f;
-    public float jump_Thrust = 50f;
+    public float jump_Thrust = 300f;
     public float max_velocity_side = 2f;
-    public float max_velocity_jump = 0.01f;
+    public float max_velocity_jump = 0.001f;
 
     
 
@@ -53,9 +53,6 @@ public class BunnyControl : MonoBehaviour
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
         }
-        if (transform.position.y < 0.4)
-        {
-            transform.position += Vector3.up * speed;
-        }
+      
     }
 }
