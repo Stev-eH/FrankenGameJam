@@ -262,7 +262,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201699239}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 152357a4a2a818c4d9030a811554ac85, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ebe67c1e5eb0c42b32ad7cba556ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   min_pos_y: 2
   max_pos_y: 4
   character: {fileID: 0}
@@ -929,6 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ebe67c1e5eb0c42b32ad7cba556ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   min_pos_y: 3.6
   max_pos_y: 6
   character: {fileID: 0}
@@ -1435,6 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ebe67c1e5eb0c42b32ad7cba556ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   min_pos_y: 7
   max_pos_y: 9
   character: {fileID: 0}
@@ -1622,7 +1625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313098577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0.8, z: 0}
+  m_LocalPosition: {x: 6, y: 0.75, z: 0}
   m_LocalScale: {x: 2, y: 0.2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1736,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ebe67c1e5eb0c42b32ad7cba556ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   min_pos_y: 7
   max_pos_y: 9
   character: {fileID: 0}
@@ -1974,7 +1978,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761043265}
-  m_Material: {fileID: 13400000, guid: 378d8486be007c546b8a35dfa0294ad8, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2037,7 +2041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761043265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.356, y: 1.063, z: 0}
+  m_LocalPosition: {x: -0, y: 1.61, z: 0}
   m_LocalScale: {x: 0.2, y: 0.6, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2068,13 +2072,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1761043265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544c5fbc304799b4ba18b585309dfe3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 47994b0e33bd02b4b96e68c98b7012ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side_Thrust: 5
-  jump_Thrust: 50
+  colliding: 0
+  side_Thrust: 10
+  jump_Thrust: 100
   max_velocity_side: 2
   max_velocity_jump: 0.01
+  collidingObjectName: none
+  collidingWithLeft: 0
+  collidingWithRight: 0
+  collidingWithPlatformsideleft: 0
+  collidingWithPlatformsideright: 0
   character: {fileID: 0}
 --- !u!1 &1826742101
 GameObject:
