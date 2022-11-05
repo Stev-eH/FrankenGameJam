@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     private Camera mainCamera;
     private float CameraZDistance;
-    public int gridSize = 4;
     public float gridReselution = 1f;
     private bool collisionFront = true;
     private bool collisionBack = true;
@@ -24,13 +23,11 @@ public class Movement : MonoBehaviour
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, CameraZDistance); //z axis added to screen point 
         Vector3 NewWorldPosition =
             mainCamera.ScreenToWorldPoint(ScreenPosition); //Screen point converted to world point
+
         if (transform.localScale.y > transform.localScale.x)
         {
-
-            
-
-    
-            NewWorldPosition.y = gridPos(NewWorldPosition.y + gridReselution);
+                     
+            NewWorldPosition.y = gridPos(NewWorldPosition.y);
 
             if (collisionFront && NewWorldPosition.y > transform.position.y)
                 NewWorldPosition.y = transform.position.y;
@@ -38,12 +35,11 @@ public class Movement : MonoBehaviour
             if (collisionBack && NewWorldPosition.y < transform.position.y)
                 NewWorldPosition.y = transform.position.y;
 
-
             NewWorldPosition.x = transform.position.x;
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x + gridReselution);
+            NewWorldPosition.x = gridPos(NewWorldPosition.x);
 
             if (collisionFront && NewWorldPosition.x < transform.position.x)
                 NewWorldPosition.x = transform.position.x;
@@ -53,14 +49,14 @@ public class Movement : MonoBehaviour
 
             NewWorldPosition.y = transform.position.y;
         }
-
-        transform.position = NewWorldPosition;
+        transform.position = Vector3.MoveTowards(transform.position, NewWorldPosition, gridReselution/2);
     }
-
     float gridPos(float pos)
-    {
-        float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
-        return posistion;
+    {   
+        if(pos < 0)
+            return 0f;
+
+        return Mathf.Round(pos / gridReselution) * gridReselution; ;
     }
 
     public void CollisionDetectedFront()
