@@ -26,12 +26,31 @@ public class Movement : MonoBehaviour
             mainCamera.ScreenToWorldPoint(ScreenPosition); //Screen point converted to world point
         if (transform.localScale.y > transform.localScale.x)
         {
-            NewWorldPosition.y = gridPos(NewWorldPosition.y + (transform.localScale.y / 2));
+
+            
+
+    
+            NewWorldPosition.y = gridPos(NewWorldPosition.y + gridReselution);
+
+            if (collisionFront && NewWorldPosition.y > transform.position.y)
+                NewWorldPosition.y = transform.position.y;
+
+            if (collisionBack && NewWorldPosition.y < transform.position.y)
+                NewWorldPosition.y = transform.position.y;
+
+
             NewWorldPosition.x = transform.position.x;
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x + (transform.localScale.x / 2));
+            NewWorldPosition.x = gridPos(NewWorldPosition.x + gridReselution);
+
+            if (collisionFront && NewWorldPosition.x < transform.position.x)
+                NewWorldPosition.x = transform.position.x;
+
+            if (collisionBack && NewWorldPosition.x > transform.position.x)
+                NewWorldPosition.x = transform.position.x;
+
             NewWorldPosition.y = transform.position.y;
         }
 
@@ -40,12 +59,6 @@ public class Movement : MonoBehaviour
 
     float gridPos(float pos)
     {
-        if (pos < 0)
-            return 0;
-
-        if (pos / gridReselution >= gridSize)
-            return gridReselution * gridSize;
-
         float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
         return posistion;
     }
