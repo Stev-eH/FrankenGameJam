@@ -41,6 +41,10 @@ public class MoveLampFormer : MonoBehaviour
         {
             collidingWithLeft = true;
         }
+        else if(col.gameObject.name == "Battery")
+        {
+            
+        }
         else if (col.gameObject.transform.position.y>transform.position.y-0.4f)
         {
             if (col.gameObject.transform.position.x < transform.position.x)
