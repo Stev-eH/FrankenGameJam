@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
 
             
 
-            
+    
             NewWorldPosition.y = gridPos(NewWorldPosition.y + gridReselution);
 
             if (collisionFront && NewWorldPosition.y > transform.position.y)
@@ -59,12 +59,6 @@ public class Movement : MonoBehaviour
 
     float gridPos(float pos)
     {
-    //    if (pos < 0)
-    //        return 0;
-
-    //    if (pos / gridReselution >= gridSize)
-    //        return gridReselution * gridSize;
-
         float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
         return posistion;
     }
