@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChildColision : MonoBehaviour
 {   
     public bool side = true;
-    // Start is called before the first frame update
     void OnCollisionEnter(Collision collision)
     {
         if(side)
