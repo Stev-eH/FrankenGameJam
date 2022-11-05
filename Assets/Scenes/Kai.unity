@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fa8ba69da17d04eae187527ae53146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSize: 4
   gridReselution: 1
 --- !u!54 &71711268
 Rigidbody:
@@ -667,6 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fa8ba69da17d04eae187527ae53146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSize: 4
   gridReselution: 1
 --- !u!65 &591861957
 BoxCollider:
@@ -1846,7 +1848,7 @@ GameObject:
   - component: {fileID: 1756504607}
   - component: {fileID: 1756504604}
   m_Layer: 0
-  m_Name: YourCar
+  m_Name: GoldenCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,7 +1862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756504602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 4, z: 0}
+  m_LocalPosition: {x: 3.5, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 986880141}
@@ -1880,6 +1882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fa8ba69da17d04eae187527ae53146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSize: 4
   gridReselution: 1
 --- !u!23 &1756504605
 MeshRenderer:
@@ -1900,7 +1903,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6174d08a61929846ae5a790f37038e7, type: 2}
+  - {fileID: 2100000, guid: 8f878c32f19f7094ea45d815aac5d7f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

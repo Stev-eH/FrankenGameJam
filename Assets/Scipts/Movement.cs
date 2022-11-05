@@ -30,10 +30,7 @@ public class Movement : MonoBehaviour
         if (transform.localScale.y > transform.localScale.x)
         {
 
-            
-
-    
-            NewWorldPosition.y = gridPos(NewWorldPosition.y + gridReselution);
+            NewWorldPosition.y = gridPos(NewWorldPosition.y);
 
             if (collisionFront && NewWorldPosition.y > transform.position.y)
                 NewWorldPosition.y = transform.position.y;
@@ -46,7 +43,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            NewWorldPosition.x = gridPos(NewWorldPosition.x + gridReselution);
+            NewWorldPosition.x = gridPos(NewWorldPosition.x);
 
             if (collisionFront && NewWorldPosition.x < transform.position.x)
                 NewWorldPosition.x = transform.position.x;
@@ -57,13 +54,16 @@ public class Movement : MonoBehaviour
             NewWorldPosition.y = transform.position.y;
         }
 
-        transform.position = NewWorldPosition;
+        transform.position = Vector3.MoveTowards(transform.position, NewWorldPosition, gridReselution/2);
 
         //Win(transform.position.y); //but just for YourCar?
     }
 
     float gridPos(float pos)
-    {
+    {   
+        if(pos <=0)
+            return 0;
+
         float posistion = Mathf.Round(pos / gridReselution) * gridReselution;
         return posistion;
     }

@@ -17,12 +17,12 @@ public class TextWinOutput : MonoBehaviour
     {
         
     }
-    public void Win(transform.position.y) //but just for GoldenCar?
-    {
-        if (transform.position.y <= 0)
-        {
-            Debug.Log("You Won!");
-            //myText.text = "You Won!";
-        }
-    }
+    //public void Win(transform.position.y) //but just for GoldenCar?
+    //{
+    //    if (transform.position.y <= 0)
+    //    {
+    //        Debug.Log("You Won!");
+    //        //myText.text = "You Won!";
+    //    }
+    //}
 }
