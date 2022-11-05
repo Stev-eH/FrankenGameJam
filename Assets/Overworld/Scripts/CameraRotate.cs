@@ -5,25 +5,21 @@ using UnityEngine;
 public class CameraRotate : MonoBehaviour
 {
     public float verticalSpeed = 2f;
+    public float horizontalSpeed = 2f;
+    public float rotateThreshold = 0.3f;
+    public float m_Speed = 5f;
+
+    private Rigidbody m_Rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float v = verticalSpeed * Input.GetAxis("Mouse Y");
-        transform.Rotate(-v, 0, 0);
-        if (transform.eulerAngles.x >= 90f)
-        {
-            transform.eulerAngles = new Vector3(0f, Quaternion.identity.eulerAngles.y, Quaternion.identity.eulerAngles.z);
-        }
-        else if (transform.eulerAngles.x >= 125f)
-        {
-            transform.eulerAngles = new Vector3(125f, Quaternion.identity.eulerAngles.y, Quaternion.identity.eulerAngles.z);
-        }
+
     }
 }
