@@ -19,7 +19,8 @@ public class MoveLampFormer : MonoBehaviour
     private bool collidingWithRight = false;
     private bool collidingWithPlatformsideleft = false;
     private bool collidingWithPlatformsideright = false;
-    public float startingoffsetx = 0;
+    private float startingoffsetx = 0;
+    public bool lighton = false;
 
     private void OnCollisionStay(Collision col)
     {
@@ -43,7 +44,24 @@ public class MoveLampFormer : MonoBehaviour
         }
         else if(col.gameObject.name == "Battery")
         {
+            //Collected battery
+            lighton = true;
             
+        }
+        else if(col.gameObject.transform.parent.name == "Enemy")
+        {
+            //hit ghost
+            if (lighton)
+            {
+                //Won
+            }
+            else
+            {
+                //Lost, Restart
+                //Scene scene = SceneManager.GetActiveScene(); 
+                //SceneManager.LoadScene(scene.name);
+            }
+
         }
         else if (col.gameObject.transform.position.y>transform.position.y-0.4f)
         {
@@ -85,6 +103,8 @@ public class MoveLampFormer : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         lamp_Rigidbody = GetComponent<Rigidbody>();
+        //Light off, no battery yet
+        lighton = false;
     }
 
     // Update is called once per frame
