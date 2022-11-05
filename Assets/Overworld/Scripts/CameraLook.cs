@@ -27,6 +27,6 @@ public class CameraLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
-        transform.position = playerBody.position;
+        transform.position = new Vector3(playerBody.position.x, playerBody.position.y + 1f, playerBody.position.z);
     }
 }
