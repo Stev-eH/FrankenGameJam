@@ -7,11 +7,12 @@ public class Interactable : MonoBehaviour
     private GameObject copy;
     private GameObject glow;
     public Material color;
+    public bool isHighlight;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isHighlight = false;
     }
 
     // Update is called once per frame
@@ -24,7 +25,8 @@ public class Interactable : MonoBehaviour
     {
         if(other.gameObject.tag.Equals("Pointer"))
         {
-            Debug.Log("Hallo :)");
+            //Debug.Log("Hallo :)");
+            isHighlight = true;
             copy = Instantiate(this.gameObject);
             Destroy(copy.GetComponent<Rigidbody>());
             Destroy(copy.GetComponent<BoxCollider>());
@@ -39,7 +41,8 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.tag.Equals("Pointer"))
         {
             Destroy(copy);
-            Debug.Log("Tschüss :(");
+            isHighlight = false;
+            //Debug.Log("Tschüss :(");
         }
     }
 }

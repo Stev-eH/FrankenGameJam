@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Pointer
+  - logic
   layers:
   - Default
   - TransparentFX
