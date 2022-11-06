@@ -8,6 +8,7 @@ TagManager:
   - Pointer
   - logic
   - BunnyHole
+  - UI
   layers:
   - Default
   - TransparentFX
