@@ -6,7 +6,7 @@ public class cameraFollow : MonoBehaviour
 {
     public static AudioClip clip;
     public AudioSource source;
-    private bool win = false;
+    //private bool win = false;
     public Transform target;
     public Vector3 offset;
 
@@ -14,11 +14,6 @@ public class cameraFollow : MonoBehaviour
     void Update()
     {
         transform.position = target.position + offset;
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void winSound()

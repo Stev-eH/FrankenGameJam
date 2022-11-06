@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dbcc5c0ce6359499ebfeee845a969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 30
+  runSpeed: 4
   myText: {fileID: 1645580927}
   startText: {fileID: 677423547}
   playsound: {fileID: 762539478}

@@ -13,7 +13,7 @@ public class MoveIndianaJones : MonoBehaviour
     private int xTreasur = 0;
     private int zTreasur = 0;
     private bool win = false;
-    public float runSpeed = 5f;
+    public float runSpeed = 15f;
 
     public GameObject myText;
     public GameObject startText;
@@ -50,7 +50,7 @@ public class MoveIndianaJones : MonoBehaviour
   
     private void FixedUpdate()
     {   
-        Vector3 movement = new Vector3(horizontal * runSpeed, 0.0f, vertical * runSpeed).normalized;
+        Vector3 movement = new Vector3(horizontal * runSpeed, 0.0f, vertical * runSpeed);
         rb.velocity = movement;
         if (!(movement.x == 0f && movement.z == 0f))
             transform.rotation = Quaternion.LookRotation(movement);
