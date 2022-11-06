@@ -9,6 +9,8 @@ public class GameLogic : MonoBehaviour
     public bool labyrinthWin = false;
     public bool bunnyWin = false;
     public bool isActive = false;
+    public bool CarWin = false;
+    public bool lampWin = false;
 
     public GameObject ui;
     void Awake()
