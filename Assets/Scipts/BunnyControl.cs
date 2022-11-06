@@ -16,21 +16,29 @@ public class BunnyControl : MonoBehaviour
     public float jump_Thrust = 300f;
     public float max_velocity_side = 2f;
     public float max_velocity_jump = 0.001f;
+
+
+    public Canvas winningScreen;
     public RawImage bunnyLeft;
     public RawImage bunnyRight;
     public AudioSource bunnyJump;
     public bool won = false;
+    public AudioSource winningSound;
     
 
-   
+    private void wonning()
+    {
+        GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin = true;
+        SceneManager.LoadScene(0);
+    }
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-     
+
+        winningScreen.enabled = false;
         bunnyLeft.enabled = false;
         //Fetch the Rigidbody from the GameObject with this script attached
         lamp_Rigidbody = GetComponent<Rigidbody>();
@@ -42,9 +50,10 @@ public class BunnyControl : MonoBehaviour
 
         if (won == true)
         {
+            winningScreen.enabled = true;
+            winningSound.Play();
 
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
-            SceneManager.LoadScene(0);
+            Invoke("wonning",3.0f);
 
 
         }
@@ -90,8 +99,9 @@ public class BunnyControl : MonoBehaviour
         {
             transform.position += Vector3.up * speed * Time.deltaTime *10;
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
-            bunnyJump.Play();
+            
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
+            bunnyJump.Play();
         }
       
     }
