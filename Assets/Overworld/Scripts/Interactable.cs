@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    /*
+ * Zum Szenenwechsel
+ * Dieses Script anhängen und Interactable.cs anhängen
+ * Interactable: Als Material Glow auswählen evtl. Größe einstellen
+ * SceneChanger: passenden Index auswählen
+ */ 
+
+
     private GameObject copy;
     public Material color;
     public bool isHighlight;

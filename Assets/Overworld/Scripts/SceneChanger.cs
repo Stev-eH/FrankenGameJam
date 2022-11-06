@@ -7,6 +7,12 @@ public class SceneChanger : MonoBehaviour
 {
     public int index;
 
+    /*
+     * Zum Szenenwechsel
+     * Dieses Script anhängen und Interactable.cs anhängen
+     * Interactable: Als Material Glow auswählen evtl. Größe einstellen
+     * SceneChanger: passenden Index auswählen
+
     /* Index
      * 0 : Zimmer
      * 1 - 5: Autoteppich Level 1 - 5 
