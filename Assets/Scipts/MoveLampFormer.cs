@@ -70,7 +70,7 @@ public class MoveLampFormer : MonoBehaviour
             if (lighton)
             {
                 //Won
-                Generallighting.intensity=5f;
+                Generallighting.intensity=2f;
                 won=true;
                 
             }
