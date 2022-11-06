@@ -23,7 +23,7 @@ public class cameraFollow : MonoBehaviour
 
     public void winSound()
     {
-        clip = Resources.Load<AudioClip>("clip");
+        //clip = Resources.Load<AudioClip>("clip");
         source.Play();
     }
 }
