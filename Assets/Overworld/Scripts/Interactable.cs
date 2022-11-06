@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     private GameObject copy;
     public Material color;
     public bool isHighlight;
+    public float thickness = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,9 @@ public class Interactable : MonoBehaviour
             Destroy(copy.GetComponent<Rigidbody>());
             Destroy(copy.GetComponent<BoxCollider>());
             Destroy(copy.GetComponent<SphereCollider>());
+            Destroy(copy.GetComponent<MeshCollider>());
             Destroy(copy.GetComponent<LODGroup>());
-            copy.transform.localScale = new Vector3(transform.localScale.x + 0.2f, transform.localScale.y + 0.2f, transform.localScale.z + 0.2f);
+            copy.transform.localScale = new Vector3(transform.localScale.x + thickness, transform.localScale.y + thickness, transform.localScale.z + thickness);
             copy.GetComponent<MeshRenderer>().material = color;
         }
     }
