@@ -180,7 +180,8 @@ public class MoveLampFormer : MonoBehaviour
                 if(won){
                     //Win condition, exit game
                     lighton = true;
-
+                    GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().lampWin= true;
+                    SceneManager.LoadScene(0);
                 }
                 else{
                     //Loose condition, restart game
