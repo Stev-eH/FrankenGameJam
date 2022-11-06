@@ -16,6 +16,9 @@ public class MoveIndianaJones : MonoBehaviour
 
     public GameObject myText;
 
+    public AudioSource source = ;
+    public AudioClip clip;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,9 +34,12 @@ public class MoveIndianaJones : MonoBehaviour
         {
             Debug.Log("WIN");
             myText.SetActive(true);
+            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
+            SceneManager.LoadScene(0);
+
         }
     }
-
+  
     private void FixedUpdate()
     {   
         Vector3 movement = new Vector3(horizontal * runSpeed, 0.0f, vertical * runSpeed).normalized;
