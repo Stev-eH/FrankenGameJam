@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384959965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0.3}
+  m_LocalPosition: {x: 0.36, y: 0, z: 0.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1112284626}
@@ -259,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e83e412218a884a844f09cfad314b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
-  height: 50
+  width: 10
+  height: 10
   size: 1
   wallPrefab: {fileID: 3495958046185666090, guid: c4217780adc8426459c7802ae3a20775, type: 3}
   floorPrefab: {fileID: 634900085634603167, guid: d8d0316b789d94441b93430f74ed2fe4, type: 3}
@@ -448,7 +448,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7627a10a7fdbcae469a18fb995b834c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
