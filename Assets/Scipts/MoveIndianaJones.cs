@@ -9,15 +9,14 @@ public class MoveIndianaJones : MonoBehaviour
     float horizontal;
     float vertical;
 
-    private int xTreasur = 0;
-    private int zTreasur = 0;
+    private int xTreasur = 100;
+    private int zTreasur = 100;
 
     public float runSpeed = 5f;
 
     public GameObject myText;
 
-    public AudioSource source = ;
-    public AudioClip clip;
+    public cameraFollow winSound;
 
     void Start()
     {
@@ -32,10 +31,10 @@ public class MoveIndianaJones : MonoBehaviour
 
         if (Mathf.Round(transform.position.z) == zTreasur && Mathf.Round(transform.position.x) == xTreasur)
         {
-            Debug.Log("WIN");
             myText.SetActive(true);
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
-            SceneManager.LoadScene(0);
+            winSound.winSound();
+            //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
+            //SceneManager.LoadScene(0);
 
         }
     }
