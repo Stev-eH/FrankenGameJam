@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BunnyControl : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class BunnyControl : MonoBehaviour
     public float jump_Thrust = 300f;
     public float max_velocity_side = 2f;
     public float max_velocity_jump = 0.001f;
-
+    public RawImage bunnyLeft;
+    public RawImage bunnyRight;
     
 
     
@@ -22,6 +24,7 @@ public class BunnyControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bunnyLeft.enabled = false;
         //Fetch the Rigidbody from the GameObject with this script attached
         lamp_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -29,10 +32,19 @@ public class BunnyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(lamp_Rigidbody.velocity.x == 0f)
+
+        if (Input.GetKey(KeyCode.A))
         {
-            lamp_Rigidbody.
-        }*/
+            bunnyRight.enabled = false;
+            bunnyLeft.enabled = true;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            bunnyRight.enabled = true;
+            bunnyLeft.enabled = false;
+        }
+
+
     }
 
     private void FixedUpdate()
