@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+//using UnityEngine.SceneManager;
 
 // Movement of Player in the Lampformer-Minigame
 
@@ -25,6 +26,7 @@ public class MoveLampFormer : MonoBehaviour
     private bool collidingWithPlatformsideright = false;
     private float startingoffsetx = 0; //Offset for Collision with moving platforms
     public bool lighton = false; //checks whether light of Player-Lamp is on
+
 
     private void OnCollisionStay(Collision col) //actions while Player is colliding with other objects
     {
@@ -119,7 +121,7 @@ public class MoveLampFormer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(lamp_Rigidbody.velocity.x == 0f) ---- BRAUCHEN WIR DAS NOCH?
+        /*if(lamp_Rigidbody.velocity.x == 0f) ---- BRAUCHEN WIR DAS NOCH? NEIN.
         {
             lamp_Rigidbody.
         }*/
@@ -128,29 +130,29 @@ public class MoveLampFormer : MonoBehaviour
     private void FixedUpdate()
     {
         //WALKING RIGHT - KEY D
-        if (Input.GetKey(KeyCode.D) && lamp_Rigidbody.velocity.x < max_velocity_side && !collidingWithRight && !collidingWithPlatformsideright)
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && lamp_Rigidbody.velocity.x < max_velocity_side && !collidingWithRight && !collidingWithPlatformsideright)
         {
             //transform.position += Vector3.right * speed * Time.deltaTime;
             lamp_Rigidbody.AddForce(transform.right * side_Thrust);
         }
 
         //WALKING LEFT - KEY A
-        if (Input.GetKey(KeyCode.A) && lamp_Rigidbody.velocity.x > -max_velocity_side && !collidingWithLeft && !collidingWithPlatformsideleft)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && lamp_Rigidbody.velocity.x > -max_velocity_side && !collidingWithLeft && !collidingWithPlatformsideleft)
         {
             //transform.position += Vector3.left * speed * Time.deltaTime;
             lamp_Rigidbody.AddForce(-transform.right * side_Thrust);
         }
 
         //JUMPING UP - SPACE BAR
-        if (Input.GetKey(KeyCode.Space) && lamp_Rigidbody.velocity.y < max_velocity_jump && lamp_Rigidbody.velocity.y > -max_velocity_jump)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && lamp_Rigidbody.velocity.y < max_velocity_jump && lamp_Rigidbody.velocity.y > -max_velocity_jump)
         {
             //transform.position += Vector3.up * speed * Time.deltaTime *10;
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
         }
-        if (transform.position.y < 0.4)
+        if (lamp_Rigidbody.velocity.y <(-5f))
         {
-            transform.position += Vector3.up*speed;
+            lamp_Rigidbody.AddForce(transform.up *jump_Thrust/5);
         }
     }
 }
