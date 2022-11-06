@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     private bool collisionFront = true;
     private bool collisionBack = true;
     public GameObject myText;
-    public bool CarWin = false;
+    //public bool CarWin = false;
 
     void Start()
     {
