@@ -79,7 +79,7 @@ public class MoveLampFormer : MonoBehaviour
             if (lighton)
             {
                 //Won
-                Generallighting.intensity=2f;
+                Generallighting.intensity=1f;
                 won=true;
                 WinSound.Play();
                 
