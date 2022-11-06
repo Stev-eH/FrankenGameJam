@@ -16,7 +16,7 @@ public class MoveIndianaJones : MonoBehaviour
 
     public GameObject myText;
 
-    public AudioSource source = ;
+    public AudioSource source =
     public AudioClip clip;
 
     void Start()

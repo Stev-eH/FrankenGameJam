@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     private bool collisionFront = true;
     private bool collisionBack = true;
     public GameObject myText;
+    public bool CarWin = false;
 
     void Start()
     {
@@ -61,6 +62,8 @@ public class Movement : MonoBehaviour
         if(goldenCar && transform.position.y <= 0)
         { 
             myText.SetActive(true);
+            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().CarWin = true;
+            SceneManager.LoadScene(0);
         }
           
     }
