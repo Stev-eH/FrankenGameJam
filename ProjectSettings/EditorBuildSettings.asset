@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Autoteppich Level 5.unity
     guid: 86613857bb8e85a409286544b932c096
   - enabled: 1
-    path: Assets/Scenes/Erich-Vivi.unity
+    path: Assets/Scenes/BunnysLife.unity
     guid: a8905ed688b06a64091453297694e1c5
   - enabled: 1
     path: Assets/Scenes/Heidi-Emily.unity
