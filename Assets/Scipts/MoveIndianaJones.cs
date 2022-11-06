@@ -16,8 +16,7 @@ public class MoveIndianaJones : MonoBehaviour
 
     public GameObject myText;
 
-    public AudioSource source =
-    public AudioClip clip;
+    public cameraFollow playsound;
 
     void Start()
     {
@@ -34,6 +33,7 @@ public class MoveIndianaJones : MonoBehaviour
         {
             Debug.Log("WIN");
             myText.SetActive(true);
+            playsound.winSound();
             GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
             SceneManager.LoadScene(0);
 
