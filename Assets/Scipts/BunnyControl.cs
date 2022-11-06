@@ -19,7 +19,6 @@ public class BunnyControl : MonoBehaviour
     public RawImage bunnyLeft;
     public RawImage bunnyRight;
     public AudioSource bunnyJump;
-    public bool bunnyWinning = false;
 
  
 
@@ -37,14 +36,6 @@ public class BunnyControl : MonoBehaviour
     void Update()
     {
 
-        /*
-        if (bunnyWinning == true)
-        {
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
-            SceneManager.LoadScene(0);
-        }
-        */
-
         if (Input.GetKey(KeyCode.A))
         {
             bunnyRight.enabled = false;
@@ -57,15 +48,6 @@ public class BunnyControl : MonoBehaviour
         }
 
 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("BunnyHole"))
-        {
-            bunnyWinning = true;
-            
-        }
     }
 
 
