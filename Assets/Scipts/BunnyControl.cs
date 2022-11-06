@@ -20,12 +20,17 @@ public class BunnyControl : MonoBehaviour
     public RawImage bunnyRight;
     public AudioSource bunnyJump;
     public bool won = false;
- 
+    
+
+   
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        bunnyJump = GetComponent<AudioSource>();
+        
+       
 
         bunnyLeft.enabled = false;
         //Fetch the Rigidbody from the GameObject with this script attached
@@ -38,8 +43,9 @@ public class BunnyControl : MonoBehaviour
 
         if (won == true)
         {
-            //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
-            //SceneManager.LoadScene(0);
+            
+          
+            
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -60,6 +66,7 @@ public class BunnyControl : MonoBehaviour
 
         if (collision.gameObject.CompareTag("BunnyHole"))
         {
+            
             won = true;
         }
 
