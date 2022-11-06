@@ -140,7 +140,7 @@ public class MoveLampFormer : MonoBehaviour
         lighton = false;
         Lamp.intensity = 0f;
         Generallighting.intensity = 0.5f;
-        WinSound = GameObject.Find("Ghost_Sample").GetComponent<AudioSource>();
+        WinSound = GameObject.Find("lamp_Ghost").GetComponent<AudioSource>();
         LooseSound = GameObject.Find("Platform_Ground").GetComponent<AudioSource>();//Game_Over4
         JumpSound = GetComponent<AudioSource>();//Jump2
         GotBatterySound= GameObject.Find("Battery").GetComponent<AudioSource>();
