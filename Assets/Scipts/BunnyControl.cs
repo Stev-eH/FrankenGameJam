@@ -38,8 +38,8 @@ public class BunnyControl : MonoBehaviour
 
         if (won == true)
         {
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
-            SceneManager.LoadScene(0);
+            //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
+            //SceneManager.LoadScene(0);
         }
 
         if (Input.GetKey(KeyCode.A))

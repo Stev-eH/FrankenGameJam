@@ -62,8 +62,8 @@ public class Movement : MonoBehaviour
         if(goldenCar && transform.position.y <= 0)
         { 
             myText.SetActive(true);
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().CarWin = true;
-            SceneManager.LoadScene(0);
+            //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().CarWin = true;
+            //SceneManager.LoadScene(0);
         }
           
     }
