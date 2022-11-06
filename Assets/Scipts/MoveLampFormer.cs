@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-//using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 // Movement of Player in the Lampformer-Minigame
 
@@ -34,6 +34,7 @@ public class MoveLampFormer : MonoBehaviour
     private bool lost=false;
     private bool won=false;
     private float timetillrestart= 1.0f;
+    private float timeafterwon=5.0f;
 
     //Audio
     //public AudioSource Source;
@@ -139,10 +140,10 @@ public class MoveLampFormer : MonoBehaviour
         lighton = false;
         Lamp.intensity = 0f;
         Generallighting.intensity = 0.5f;
-        WinSound = GetComponent<AudioSource>();
-        LooseSound = GetComponent<AudioSource>();//Game_Over4
+        WinSound = GameObject.Find("Ghost_Sample").GetComponent<AudioSource>();
+        LooseSound = GameObject.Find("Platform_Ground").GetComponent<AudioSource>();//Game_Over4
         JumpSound = GetComponent<AudioSource>();//Jump2
-        GotBatterySound= GetComponent<AudioSource>();
+        GotBatterySound= GameObject.Find("Battery").GetComponent<AudioSource>();
         WinSound.Stop();
         LooseSound.Stop();
         JumpSound.Stop();
@@ -163,8 +164,14 @@ public class MoveLampFormer : MonoBehaviour
             Lamp.intensity = 0f;
         }
         if(won ||lost){
-            timetillrestart -= Time.deltaTime;
-            if(timetillrestart<=0){
+            if(lost){
+                timetillrestart -= Time.deltaTime;
+            }
+            else{
+                timeafterwon -= Time.deltaTime;
+            }
+            
+            if((timetillrestart<=0 && lost)||(timeafterwon<=0 && won)){
                 Generallighting.intensity = 0.5f;
                 WinSound.Stop();
                 LooseSound.Stop();
@@ -173,14 +180,15 @@ public class MoveLampFormer : MonoBehaviour
                 if(won){
                     //Win condition, exit game
                     lighton = true;
+
                 }
                 else{
                     //Loose condition, restart game
                     lighton = false;
                     lost = false;
                     won = false;
-                    //Scene scene = SceneManager.GetActiveScene(); 
-                    //SceneManager.LoadScene(scene.name);
+                    Scene scene = SceneManager.GetActiveScene(); 
+                    SceneManager.LoadScene(scene.name);
                 }
             }
         }
