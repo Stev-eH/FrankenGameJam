@@ -119,7 +119,7 @@ public class MoveLampFormer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(lamp_Rigidbody.velocity.x == 0f) ---- BRAUCHEN WIR DAS NOCH?
+        /*if(lamp_Rigidbody.velocity.x == 0f) ---- BRAUCHEN WIR DAS NOCH? NEIN.
         {
             lamp_Rigidbody.
         }*/
@@ -148,9 +148,9 @@ public class MoveLampFormer : MonoBehaviour
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
         }
-        if (transform.position.y < 0.4)
+        if (lamp_Rigidbody.velocity.y <(-5f))
         {
-            transform.position += Vector3.up*speed;
+            lamp_Rigidbody.AddForce(transform.up *jump_Thrust/5);
         }
     }
 }
