@@ -5,6 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public int index;
+
+    /*
+     * Zum Szenenwechsel
+     * Dieses Script anhängen und Interactable.cs anhängen
+     * Interactable: Als Material Glow auswählen evtl. Größe einstellen
+     * SceneChanger: passenden Index auswählen
+
+    /* Index
+     * 0 : Zimmer
+     * 1 - 5: Autoteppich Level 1 - 5 
+     * 6: Erich-Vivi
+     * 7: Heidi-Emily
+     * 8: Labyrinth
+     */
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +34,9 @@ public class SceneChanger : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
                 GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().loaded += 1;
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(index);
             }
         }
     }

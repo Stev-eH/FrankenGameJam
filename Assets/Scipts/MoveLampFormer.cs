@@ -9,7 +9,7 @@ public class MoveLampFormer : MonoBehaviour
     public bool colliding = false; // variable to check whether lamp is colliding with other objects
 
     //public void AddForce(Vector3 force, ForceMode mode = ForceMode.Force);
-
+    
     Rigidbody lamp_Rigidbody;
     public float speed = 0.1f;
     public GameObject character;
@@ -34,6 +34,13 @@ public class MoveLampFormer : MonoBehaviour
     private bool lost=false;
     private bool won=false;
     private float timetillrestart= 1.0f;
+
+    //Audio
+    //public AudioSource Source;
+    public AudioSource WinSound;
+    public AudioSource LooseSound;//Game_Over4
+    public AudioSource JumpSound;//Jump2
+    public AudioSource GotBatterySound;//Winning1
 
     private void OnCollisionStay(Collision col) //actions while Player is colliding with other objects
     {
@@ -62,6 +69,7 @@ public class MoveLampFormer : MonoBehaviour
         {
             //Collected battery
             lighton = true;
+            GotBatterySound.Play();
             
         }
         else if(col.gameObject.transform.parent.name == "Enemy") //Hit an enemy
@@ -72,6 +80,7 @@ public class MoveLampFormer : MonoBehaviour
                 //Won
                 Generallighting.intensity=2f;
                 won=true;
+                WinSound.Play();
                 
             }
             else
@@ -79,6 +88,7 @@ public class MoveLampFormer : MonoBehaviour
                 //Lost, Restart
                 Generallighting.intensity=0.1f;
                 lost=true;
+                LooseSound.Play();
                 
             }
 
@@ -129,6 +139,14 @@ public class MoveLampFormer : MonoBehaviour
         lighton = false;
         Lamp.intensity = 0f;
         Generallighting.intensity = 0.5f;
+        WinSound = GetComponent<AudioSource>();
+        LooseSound = GetComponent<AudioSource>();//Game_Over4
+        JumpSound = GetComponent<AudioSource>();//Jump2
+        GotBatterySound= GetComponent<AudioSource>();
+        WinSound.Stop();
+        LooseSound.Stop();
+        JumpSound.Stop();
+        GotBatterySound.Stop();
     }
 
     // Update is called once per frame
@@ -139,7 +157,7 @@ public class MoveLampFormer : MonoBehaviour
             lamp_Rigidbody.
         }*/
         if(lighton){
-            Lamp.intensity = 3f;
+            Lamp.intensity = 2f;
         }
         else{
             Lamp.intensity = 0f;
@@ -148,6 +166,10 @@ public class MoveLampFormer : MonoBehaviour
             timetillrestart -= Time.deltaTime;
             if(timetillrestart<=0){
                 Generallighting.intensity = 0.5f;
+                WinSound.Stop();
+                LooseSound.Stop();
+                JumpSound.Stop();
+                GotBatterySound.Stop();
                 if(won){
                     //Win condition, exit game
                     lighton = true;
@@ -187,6 +209,7 @@ public class MoveLampFormer : MonoBehaviour
             //transform.position += Vector3.up * speed * Time.deltaTime *10;
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
+            JumpSound.Play();
         }
         if (lamp_Rigidbody.velocity.y <(-5f))
         {
