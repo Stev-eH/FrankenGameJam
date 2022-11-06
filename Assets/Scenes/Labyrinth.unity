@@ -259,14 +259,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e83e412218a884a844f09cfad314b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 50
+  height: 50
   size: 1
   wallPrefab: {fileID: 3495958046185666090, guid: c4217780adc8426459c7802ae3a20775, type: 3}
   floorPrefab: {fileID: 634900085634603167, guid: d8d0316b789d94441b93430f74ed2fe4, type: 3}
   treasurePrefab: {fileID: 2410188129219673706, guid: 5227d616771d6884d8f5db7b198000b5, type: 3}
-  Indi: {fileID: 0}
-  LightPlacer: {fileID: 0}
+  Indi: {fileID: 1112284622}
+  LightPlacer: {fileID: 1112284627}
 --- !u!1 &762539477
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e565861e34bf51488ed10abd65b6c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1112284626}
   offset: {x: 0, y: 3, z: 0}
 --- !u!81 &762539479
 AudioListener:
@@ -334,7 +334,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 1112284623}
   - component: {fileID: 1112284622}
   - component: {fileID: 1112284621}
+  - component: {fileID: 1112284627}
   m_Layer: 0
   m_Name: IndianaJones
   m_TagString: Untagged
@@ -414,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dbcc5c0ce6359499ebfeee845a969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
+  runSpeed: 30
 --- !u!65 &1112284623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -492,6 +493,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112284627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112284620}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b16b1b094e96748aee858973a3ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightPrefab: {fileID: 1108910813457323051, guid: 87a683678f677754a9b31bb5ca4d1c94, type: 3}
+  lightHolder: {fileID: 1599769410}
 --- !u!1 &1599769409
 GameObject:
   m_ObjectHideFlags: 0
