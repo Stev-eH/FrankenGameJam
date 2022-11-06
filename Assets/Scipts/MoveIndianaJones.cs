@@ -11,10 +11,11 @@ public class MoveIndianaJones : MonoBehaviour
 
     private int xTreasur = 0;
     private int zTreasur = 0;
-
+    private bool win = false;
     public float runSpeed = 5f;
 
     public GameObject myText;
+    public GameObject startText;
 
     public cameraFollow playsound;
 
@@ -29,13 +30,19 @@ public class MoveIndianaJones : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Round(transform.position.z) == zTreasur && Mathf.Round(transform.position.x) == xTreasur)
+        if ((transform.position.z + transform.position.x) != 0)
+            startText.SetActive(false);
+
+
+        if (Mathf.Round(transform.position.z) == zTreasur && Mathf.Round(transform.position.x) == xTreasur && !win)
         {
+
             Debug.Log("WIN");
             myText.SetActive(true);
             playsound.winSound();
             //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
             //SceneManager.LoadScene(0);
+            win = true;
 
         }
     }
