@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BunnyControl : MonoBehaviour
 {
@@ -14,14 +16,19 @@ public class BunnyControl : MonoBehaviour
     public float jump_Thrust = 300f;
     public float max_velocity_side = 2f;
     public float max_velocity_jump = 0.001f;
+    public RawImage bunnyLeft;
+    public RawImage bunnyRight;
+    public AudioSource bunnyJump;
+    public bool bunnyWinning = false;
 
-    
-
-    
+ 
 
     // Start is called before the first frame update
     void Start()
     {
+        bunnyJump = GetComponent<AudioSource>();
+
+        bunnyLeft.enabled = false;
         //Fetch the Rigidbody from the GameObject with this script attached
         lamp_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -29,11 +36,38 @@ public class BunnyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(lamp_Rigidbody.velocity.x == 0f)
+
+        /*
+        if (bunnyWinning == true)
         {
-            lamp_Rigidbody.
-        }*/
+            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
+            SceneManager.LoadScene(0);
+        }
+        */
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            bunnyRight.enabled = false;
+            bunnyLeft.enabled = true;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            bunnyRight.enabled = true;
+            bunnyLeft.enabled = false;
+        }
+
+
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BunnyHole"))
+        {
+            bunnyWinning = true;
+            
+        }
+    }
+
 
     private void FixedUpdate()
     {
@@ -51,6 +85,7 @@ public class BunnyControl : MonoBehaviour
         {
             //transform.position += Vector3.up * speed * Time.deltaTime *10;
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
+            bunnyJump.Play();
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
         }
       
