@@ -1,0 +1,43 @@
+	
+--------------Bed and Lamp----------------------------
+
+This pack contains 3d Model of Bed and Lamp for kids room asset.
+
+Technical Details:-
+				
+		- Vertex count : 4788
+		- Tris count : 9508
+		- Used Material(s) : Universal Render Pipeline(URP/Lit)
+		- Texture maps : Albedo/Base Color
+		- Texture Size : 2048
+
+Features:-
+	- Low poly design
+	- UV Unwrapped
+	- Stylized texture
+	- Easy to change colors
+	
+		
+Folder details:-
+
+	Materials : Where the materials for the model located.
+	
+	Meshes : Contain FBX format of the 3d model.
+	
+	Textures : Contains Textures, that are in (.PNG) file format
+	
+	(Other folders - Prefabs, Scenes)
+
+How to use:-
+	
+	Simply drag and drop the prefab to your scene and use it.
+	(Prefab(s) located under 
+	Asset > Bed & Lamp > Prefabs).
+
+..................................................................................
+
+About Us : "SR Studios Kerala", Game developing company located in Alappuzha, Kerala, India
+
+Contact : srstudioskerala@gmail.com
+
+................Thanks for downloading this package................................
