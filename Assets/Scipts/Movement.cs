@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -61,7 +62,22 @@ public class Movement : MonoBehaviour
         //Siegerehrung
         if(goldenCar && transform.position.y <= 0)
         { 
-            myText.SetActive(true);
+            if(SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                SceneManager.LoadScene(4);
+            }
+            else if(SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                SceneManager.LoadScene(5);
+            }
+            else if(SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                myText.SetActive(true);
+            }
             //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().CarWin = true;
             //SceneManager.LoadScene(0);
         }
