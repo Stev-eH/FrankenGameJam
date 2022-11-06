@@ -17,8 +17,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        CameraZDistance =
-            mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
+        CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
         myText.SetActive(false);
 
         
