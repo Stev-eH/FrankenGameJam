@@ -16,13 +16,16 @@ public class BunnyControl : MonoBehaviour
     public float jump_Thrust = 300f;
     public float max_velocity_side = 2f;
     public float max_velocity_jump = 0.001f;
+
+
+
     public RawImage bunnyLeft;
     public RawImage bunnyRight;
     public AudioSource bunnyJump;
     public bool won = false;
     
 
-   
+    
 
 
 
@@ -90,8 +93,9 @@ public class BunnyControl : MonoBehaviour
         {
             transform.position += Vector3.up * speed * Time.deltaTime *10;
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
-            bunnyJump.Play();
+            
             lamp_Rigidbody.AddForce(transform.up * jump_Thrust);
+            bunnyJump.Play();
         }
       
     }
