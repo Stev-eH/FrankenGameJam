@@ -14,9 +14,12 @@ public class MoveIndianaJones : MonoBehaviour
 
     public float runSpeed = 5f;
 
+    public GameObject myText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        myText.SetActive(false);
     }
 
     void Update()
@@ -27,6 +30,7 @@ public class MoveIndianaJones : MonoBehaviour
         if (Mathf.Round(transform.position.z) == zTreasur && Mathf.Round(transform.position.x) == xTreasur)
         {
             Debug.Log("WIN");
+            myText.SetActive(true);
         }
     }
 
