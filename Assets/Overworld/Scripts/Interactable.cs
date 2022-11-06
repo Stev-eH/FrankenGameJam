@@ -39,7 +39,8 @@ public class Interactable : MonoBehaviour
             Destroy(copy.GetComponent<Rigidbody>());
             Destroy(copy.GetComponent<BoxCollider>());
             Destroy(copy.GetComponent<SphereCollider>());
-            Destroy(copy.GetComponent<MeshCollider>());
+            Destroy(copy.GetComponent<MeshCollider>()); 
+            Destroy(copy.GetComponent<CapsuleCollider>());
             Destroy(copy.GetComponent<LODGroup>());
             copy.transform.localScale = new Vector3(transform.localScale.x + thickness, transform.localScale.y + thickness, transform.localScale.z + thickness);
             copy.GetComponent<MeshRenderer>().material = color;
