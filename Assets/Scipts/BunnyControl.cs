@@ -19,7 +19,7 @@ public class BunnyControl : MonoBehaviour
     public RawImage bunnyLeft;
     public RawImage bunnyRight;
     public AudioSource bunnyJump;
-
+    public bool won = false;
  
 
     // Start is called before the first frame update
@@ -36,6 +36,12 @@ public class BunnyControl : MonoBehaviour
     void Update()
     {
 
+        if (won == true)
+        {
+            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
+            SceneManager.LoadScene(0);
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             bunnyRight.enabled = false;
@@ -47,6 +53,15 @@ public class BunnyControl : MonoBehaviour
             bunnyLeft.enabled = false;
         }
 
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("BunnyHole"))
+        {
+            won = true;
+        }
 
     }
 
