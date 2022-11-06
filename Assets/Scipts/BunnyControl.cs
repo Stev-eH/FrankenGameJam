@@ -37,12 +37,13 @@ public class BunnyControl : MonoBehaviour
     void Update()
     {
 
-        //asd
+        /*
         if (bunnyWinning == true)
         {
             GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().bunnyWin= true;
             SceneManager.LoadScene(0);
         }
+        */
 
         if (Input.GetKey(KeyCode.A))
         {
