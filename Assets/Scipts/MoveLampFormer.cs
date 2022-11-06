@@ -26,7 +26,14 @@ public class MoveLampFormer : MonoBehaviour
     private bool collidingWithPlatformsideright = false;
     private float startingoffsetx = 0; //Offset for Collision with moving platforms
     public bool lighton = false; //checks whether light of Player-Lamp is on
+    //public Lamp_Light lighton2;
+    public Light Lamp;
+    public Light Generallighting;
 
+    //Lost/Won
+    private bool lost=false;
+    private bool won=false;
+    private float timetillrestart= 1.0f;
 
     private void OnCollisionStay(Collision col) //actions while Player is colliding with other objects
     {
@@ -63,12 +70,16 @@ public class MoveLampFormer : MonoBehaviour
             if (lighton)
             {
                 //Won
+                Generallighting.intensity=5f;
+                won=true;
+                
             }
             else
             {
                 //Lost, Restart
-                //Scene scene = SceneManager.GetActiveScene(); 
-                //SceneManager.LoadScene(scene.name);
+                Generallighting.intensity=0.1f;
+                lost=true;
+                
             }
 
         }
@@ -116,6 +127,8 @@ public class MoveLampFormer : MonoBehaviour
         lamp_Rigidbody = GetComponent<Rigidbody>();
         //Light off, no battery yet
         lighton = false;
+        Lamp.intensity = 0f;
+        Generallighting.intensity = 0.5f;
     }
 
     // Update is called once per frame
@@ -125,6 +138,31 @@ public class MoveLampFormer : MonoBehaviour
         {
             lamp_Rigidbody.
         }*/
+        if(lighton){
+            Lamp.intensity = 3f;
+        }
+        else{
+            Lamp.intensity = 0f;
+        }
+        if(won ||lost){
+            timetillrestart -= Time.deltaTime;
+            if(timetillrestart<=0){
+                Generallighting.intensity = 0.5f;
+                if(won){
+                    //Win condition, exit game
+                    lighton = true;
+                }
+                else{
+                    //Loose condition, restart game
+                    lighton = false;
+                    lost = false;
+                    won = false;
+                    //Scene scene = SceneManager.GetActiveScene(); 
+                    //SceneManager.LoadScene(scene.name);
+                }
+            }
+        }
+       
     }
 
     private void FixedUpdate()
@@ -155,4 +193,5 @@ public class MoveLampFormer : MonoBehaviour
             lamp_Rigidbody.AddForce(transform.up *jump_Thrust/5);
         }
     }
+    //public void lamponfunc(bool lampon2);
 }
