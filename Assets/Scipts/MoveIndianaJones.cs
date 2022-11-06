@@ -34,8 +34,8 @@ public class MoveIndianaJones : MonoBehaviour
             Debug.Log("WIN");
             myText.SetActive(true);
             playsound.winSound();
-            GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
-            SceneManager.LoadScene(0);
+            //GameObject.FindGameObjectWithTag("logic").GetComponent<GameLogic>().labyrinthWin = true;
+            //SceneManager.LoadScene(0);
 
         }
     }
